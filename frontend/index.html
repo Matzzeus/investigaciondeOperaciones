@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transporte IO</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Investigacion de operaciones</p>
+          <h1>Problemas de transporte</h1>
+        </div>
+
+        <section class="panel compact-panel">
+          <h2>Configuracion</h2>
+          <label>
+            Origenes
+            <input id="originCount" type="number" min="1" max="12" value="3" />
+          </label>
+          <label>
+            Destinos
+            <input id="destinationCount" type="number" min="1" max="12" value="3" />
+          </label>
+          <button id="generateBtn" class="primary-button" type="button">Generar tabla</button>
+        </section>
+
+        <section class="panel compact-panel">
+          <h2>Preferencias</h2>
+          <label class="toggle-row">
+            Tema oscuro
+            <input id="themeToggle" type="checkbox" />
+          </label>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h2>Entrada del modelo</h2>
+          </div>
+          <div class="action-row">
+            <button id="minCostBtn" type="button">Ejecutar Costo Minimo</button>
+            <button id="vogelBtn" type="button">Ejecutar Vogel</button>
+            <button id="compareBtn" type="button">Comparar Metodos</button>
+            <button id="clearBtn" class="ghost-button" type="button">Limpiar</button>
+          </div>
+        </header>
+
+        <section id="message" class="message hidden"></section>
+
+        <section class="panel table-panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Datos</p>
+              <h3>Matriz de costos, oferta y demanda</h3>
+            </div>
+          </div>
+          <div id="inputTable" class="table-wrap"></div>
+          <div id="balanceStatus" class="balance-status"></div>
+          <div id="balancePreview" class="table-wrap"></div>
+        </section>
+
+        <section class="results-grid">
+          <section class="panel">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Resultado</p>
+                <h3>Matriz de asignacion final</h3>
+              </div>
+              <div class="export-row">
+                <button id="pdfBtn" type="button" disabled>Exportar PDF</button>
+                <button id="excelBtn" type="button" disabled>Exportar Excel</button>
+              </div>
+            </div>
+            <div id="summary" class="summary-empty">Ejecuta un metodo para ver resultados.</div>
+            <div id="balancedCostTable" class="table-wrap"></div>
+            <div id="allocationTable" class="table-wrap"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Comparacion</p>
+                <h3>Costo por metodo</h3>
+              </div>
+            </div>
+            <div id="comparisonTable" class="table-wrap"></div>
+          </section>
+        </section>
+
+        <section class="panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Detalle</p>
+              <h3>Historial paso a paso</h3>
+            </div>
+          </div>
+          <div id="history" class="history-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
